@@ -21,9 +21,9 @@ public class Board {
             } else {
                 System.out.println("There's no space there, try again.");
                 System.out.print("X coordinate: ");
-                int x = Integer.valueOf(new Scanner(System.in).nextLine());
+                int x = Integer.parseInt(new Scanner(System.in).nextLine());
                 System.out.print("Y coordinate: ");
-                int y = Integer.valueOf(new Scanner(System.in).nextLine());
+                int y = Integer.parseInt(new Scanner(System.in).nextLine());
                 ArrayList<Integer> coordinateList = new ArrayList<>(Arrays.asList(x, y));
                 if (this.locations.get(coordinateList) == null) {
                     this.locations.put(coordinateList, this.userPreference);

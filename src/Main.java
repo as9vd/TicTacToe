@@ -34,9 +34,9 @@ public class Main {
             System.out.println("Where will you place your next piece? ");
 
             System.out.print("X coordinate: ");
-            int x = Integer.valueOf(scanner.nextLine());
+            int x = Integer.parseInt(scanner.nextLine());
             System.out.print("Y coordinate: ");
-            int y = Integer.valueOf(scanner.nextLine());
+            int y = Integer.parseInt(scanner.nextLine());
 
             ArrayList<Integer> coordinateList = new ArrayList<>(Arrays.asList(x, y));
 
@@ -66,7 +66,7 @@ public class Main {
     public static int xOrO(String answer) {
         if (answer.toLowerCase().contains("x")) {
             return 1;
-        } else if (answer.toLowerCase().contains("x")) {
+        } else if (answer.toLowerCase().contains("o")) {
             return 2;
         } else {
             return 0;
