@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -37,11 +38,28 @@ public class Main {
             System.out.print("Y coordinate: ");
             int y = Integer.valueOf(scanner.nextLine());
 
-            ArrayList<Integer> coordinateList = new ArrayList<>();
-            coordinateList.add(x);
-            coordinateList.add(y);
+            ArrayList<Integer> coordinateList = new ArrayList<>(Arrays.asList(x, y));
 
             board.userPlacement(coordinateList);
+
+            if (board.checkVictory() == 1 || board.checkVictory() == 2 ) {
+                System.out.println(board.toString());
+                break;
+            }
+
+            if (board.markCount <= 8) {
+                board.botPlacement();
+            }
+
+            if (board.markCount == 9) {
+                if (board.checkVictory() == 1 || board.checkVictory() == 2 ) {
+                    System.out.println(board.toString());
+                    break;
+                }
+                System.out.println(board.toString());
+                System.out.println("Stalemate!");
+                break;
+            }
         }
     }
 
