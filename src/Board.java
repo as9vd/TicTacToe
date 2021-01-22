@@ -78,12 +78,62 @@ public class Board {
                     return 2;
                 }
             }
-        } else if (this.locations.get(new ArrayList<>(Arrays.asList(3, 1))) == this.locations.get(new ArrayList<>(Arrays.asList(2, 2))) && this.locations.get(new ArrayList<>(Arrays.asList(3, 2))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 3)))) { // Bottom row.
+        } else if (this.locations.get(new ArrayList<>(Arrays.asList(3, 1))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 2))) && this.locations.get(new ArrayList<>(Arrays.asList(3, 2))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 3)))) { // Bottom row.
             if (!(this.locations.get(new ArrayList<>(Arrays.asList(3, 1))) == null)) {
                 if (this.locations.get(new ArrayList<>(Arrays.asList(3, 1))) == this.userPreference) {
                     System.out.println("You won! Congratulations!");
                     return 1;
                 } else if (this.locations.get(new ArrayList<>(Arrays.asList(3, 1))) == this.botPreference) {
+                    System.out.println("You lost to the robot. Damn.");
+                    return 2;
+                }
+            }
+        } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == this.locations.get(new ArrayList<>(Arrays.asList(2, 1))) && this.locations.get(new ArrayList<>(Arrays.asList(2, 1))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 1)))) { // Left column.
+            if (!(this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == null)) {
+                if (this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == this.userPreference) {
+                    System.out.println("You won! Congratulations!");
+                    return 1;
+                } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == this.botPreference) {
+                    System.out.println("You lost to the robot. Damn.");
+                    return 2;
+                }
+            }
+        } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 2))) == this.locations.get(new ArrayList<>(Arrays.asList(2, 2))) && this.locations.get(new ArrayList<>(Arrays.asList(2, 2))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 2)))) { // Middle column.
+            if (!(this.locations.get(new ArrayList<>(Arrays.asList(1, 2))) == null)) {
+                if (this.locations.get(new ArrayList<>(Arrays.asList(1, 2))) == this.userPreference) {
+                    System.out.println("You won! Congratulations!");
+                    return 1;
+                } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 2))) == this.botPreference) {
+                    System.out.println("You lost to the robot. Damn.");
+                    return 2;
+                }
+            }
+        } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == this.locations.get(new ArrayList<>(Arrays.asList(2, 3))) && this.locations.get(new ArrayList<>(Arrays.asList(2, 3))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 3)))) { // Right column.
+            if (!(this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == null)) {
+                if (this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == this.userPreference) {
+                    System.out.println("You won! Congratulations!");
+                    return 1;
+                } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == this.botPreference) {
+                    System.out.println("You lost to the robot. Damn.");
+                    return 2;
+                }
+            }
+        } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == this.locations.get(new ArrayList<>(Arrays.asList(2, 2))) && this.locations.get(new ArrayList<>(Arrays.asList(2, 2))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 3)))) { // Top left to bottom right.
+            if (!(this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == null)) {
+                if (this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == this.userPreference) {
+                    System.out.println("You won! Congratulations!");
+                    return 1;
+                } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 1))) == this.botPreference) {
+                    System.out.println("You lost to the robot. Damn.");
+                    return 2;
+                }
+            }
+        } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == this.locations.get(new ArrayList<>(Arrays.asList(2, 2))) && this.locations.get(new ArrayList<>(Arrays.asList(2, 2))) == this.locations.get(new ArrayList<>(Arrays.asList(3, 1)))) { // Top right to bottom left.
+            if (!(this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == null)) {
+                if (this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == this.userPreference) {
+                    System.out.println("You won! Congratulations!");
+                    return 1;
+                } else if (this.locations.get(new ArrayList<>(Arrays.asList(1, 3))) == this.botPreference) {
                     System.out.println("You lost to the robot. Damn.");
                     return 2;
                 }

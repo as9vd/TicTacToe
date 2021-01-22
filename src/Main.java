@@ -8,25 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Board board = new Board();
 
-        System.out.println("Welcome to this game of Tic-Tac-Toe. You'll be facing a solid bot.");
-        System.out.print("Do you want to be 'X' or 'O'? ");
-        while (true) {
-            int preference = xOrO(scanner.nextLine());
-
-            if (preference == 1) {
-                System.out.println("Nice mate. You're X. Good stuff.");
-                board.userPreference = 'X';
-                board.botPreference = 'O';
-                break;
-            } else if (preference == 2) {
-                System.out.println("Nice mate. You're O. Good stuff.");
-                board.userPreference = 'O';
-                board.botPreference = 'X';
-                break;
-            } else {
-                System.out.print("Not a legitimate answer mate, try again: ");
-            }
-        }
+        intro(board, scanner);
 
         while (true) {
             System.out.println("Current state of the board: ");
@@ -38,16 +20,14 @@ public class Main {
             System.out.print("Y coordinate: ");
             int y = Integer.parseInt(scanner.nextLine());
 
-            ArrayList<Integer> coordinateList = new ArrayList<>(Arrays.asList(x, y));
+            board.userPlacement(new ArrayList<>(Arrays.asList(x, y)));
 
-            board.userPlacement(coordinateList);
-
-            if (board.checkVictory() == 1 || board.checkVictory() == 2 ) {
+            if (board.checkVictory() == 1 || board.checkVictory() == 2) {
                 System.out.println(board.toString());
                 break;
             }
 
-            if (board.markCount <= 8) {
+            if (board.markCount <= 8 && board.checkVictory() == 0) {
                 board.botPlacement();
             }
 
@@ -71,6 +51,37 @@ public class Main {
         } else {
             return 0;
         }
+    }
+
+    public static void intro(Board board, Scanner scanner) {
+        System.out.println("Welcome to this game of Tic-Tac-Toe. You'll be facing a solid bot.");
+        System.out.print("Do you want to be 'X' or 'O'? ");
+
+        while (true) {
+            int preference = xOrO(scanner.nextLine());
+
+            if (preference == 1) {
+                System.out.println("Nice mate. You're X. Good stuff.");
+                board.userPreference = 'X';
+                board.botPreference = 'O';
+                break;
+            } else if (preference == 2) {
+                System.out.println("Nice mate. You're O. Good stuff.");
+                board.userPreference = 'O';
+                board.botPreference = 'X';
+                break;
+            } else {
+                System.out.print("Not a legitimate answer mate, try again: ");
+            }
+        }
+
+        System.out.println();
+        System.out.println("Here's a quick map of the coordinates for reference.");
+        System.out.println("The first value in the parentheses is the X value, the second is the Y value.");
+        System.out.println("(1,1) | (1,2) | (1,3)");
+        System.out.println("(2,1) | (2,2) | (2,3)");
+        System.out.println("(3,1) | (3,2) | (3,3)");
+        System.out.println();
     }
 
 }
