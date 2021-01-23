@@ -22,8 +22,30 @@ public class Board {
                 System.out.println("There's no space there, try again.");
                 System.out.print("X coordinate: ");
                 int x = Integer.parseInt(new Scanner(System.in).nextLine());
+
+                while (true) {
+                    if (!(Main.coordinateValidity(x))) {
+                        System.out.println("Mate, that's not a valid X coordinate. Try again.");
+                        System.out.print("X coordinate: ");
+                        x = Integer.parseInt(new Scanner(System.in).nextLine());
+                    } else {
+                        break;
+                    }
+                }
+
                 System.out.print("Y coordinate: ");
                 int y = Integer.parseInt(new Scanner(System.in).nextLine());
+
+                while (true) {
+                    if (!(Main.coordinateValidity(y))) {
+                        System.out.println("Mate, that's not a valid Y coordinate. Try again.");
+                        System.out.print("Y coordinate: ");
+                        y = Integer.parseInt(new Scanner(System.in).nextLine());
+                    } else {
+                        break;
+                    }
+                }
+
                 ArrayList<Integer> coordinateList = new ArrayList<>(Arrays.asList(x, y));
                 if (this.locations.get(coordinateList) == null) {
                     this.locations.put(coordinateList, this.userPreference);

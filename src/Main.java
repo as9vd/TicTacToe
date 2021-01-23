@@ -17,8 +17,29 @@ public class Main {
 
             System.out.print("X coordinate: ");
             int x = Integer.parseInt(scanner.nextLine());
+
+            while (true) {
+                if (!(coordinateValidity(x))) {
+                    System.out.println("Mate, that's not a valid X coordinate. Try again.");
+                    System.out.print("X coordinate: ");
+                    x = Integer.parseInt(scanner.nextLine());
+                } else {
+                    break;
+                }
+            }
+
             System.out.print("Y coordinate: ");
             int y = Integer.parseInt(scanner.nextLine());
+
+            while (true) {
+                if (!(coordinateValidity(y))) {
+                    System.out.println("Mate, that's not a valid Y coordinate. Try again.");
+                    System.out.print("Y coordinate: ");
+                    y = Integer.parseInt(scanner.nextLine());
+                } else {
+                    break;
+                }
+            }
 
             board.userPlacement(new ArrayList<>(Arrays.asList(x, y)));
 
@@ -82,6 +103,10 @@ public class Main {
         System.out.println("(2,1) | (2,2) | (2,3)");
         System.out.println("(3,1) | (3,2) | (3,3)");
         System.out.println();
+    }
+
+    public static boolean coordinateValidity(int coordinate) {
+        return coordinate <= 3 && coordinate >= 1;
     }
 
 }
